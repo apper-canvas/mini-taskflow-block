@@ -1,6 +1,6 @@
-import { taskData } from '../mockData/tasks.json'
+import tasksData from '../mockData/tasks.json'
 
-let tasks = [...taskData]
+let tasks = [...tasksData]
 let nextId = Math.max(...tasks.map(t => t.Id)) + 1
 
 const delay = () => new Promise(resolve => setTimeout(resolve, 250))
