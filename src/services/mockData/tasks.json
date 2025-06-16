@@ -1,0 +1,67 @@
+[
+  {
+    "Id": 1,
+    "title": "Review quarterly budget report",
+    "description": "Analyze Q3 spending patterns and prepare recommendations for Q4 budget allocation",
+    "categoryId": "work",
+    "priority": 3,
+    "dueDate": "2024-01-15T09:00:00.000Z",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-01-10T08:30:00.000Z",
+    "completedAt": null,
+    "order": 0
+  },
+  {
+    "Id": 2,
+    "title": "Complete React component refactoring",
+    "description": "Migrate legacy class components to functional components with hooks",
+    "categoryId": "work",
+    "priority": 2,
+    "dueDate": "1/12/2024 5:00:00 PM.000Z",
+    "completed": true,
+    "archived": false,
+    "createdAt": "2024-01-08T10:15:00.000Z",
+    "completedAt": "2024-01-11T16:45:00.000Z",
+    "order": 1
+  },
+  {
+    "Id": 3,
+    "title": "Schedule dentist appointment",
+    "description": "Book routine cleaning and checkup for next month",
+    "categoryId": "personal",
+    "priority": 1,
+    "dueDate": "2024-01-20T12:00:00.000Z",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-01-09T14:20:00.000Z",
+    "completedAt": null,
+    "order": 2
+  },
+  {
+    "Id": 4,
+    "title": "Grocery shopping for the week",
+    "description": "Buy ingredients for meal prep: chicken, vegetables, rice, and snacks",
+    "categoryId": "personal",
+    "priority": 2,
+    "dueDate": "2024-01-13T18:00:00.000Z",
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-01-10T12:00:00.000Z",
+    "completedAt": null,
+    "order": 3
+  },
+  {
+    "Id": 5,
+    "title": "Read 'Atomic Habits' chapter 5",
+    "description": "Continue learning about habit stacking and environmental design",
+    "categoryId": "learning",
+    "priority": 1,
+    "dueDate": null,
+    "completed": false,
+    "archived": false,
+    "createdAt": "2024-01-09T19:30:00.000Z",
+    "completedAt": null,
+    "order": 4
+  }
+]

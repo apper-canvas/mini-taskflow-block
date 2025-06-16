@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'react-toastify/dist/ReactToastify.css';
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 font-body antialiased;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    @apply h-full;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, #5B4CFF 0%, #7C3AED 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #FF6B6B 0%, #EF476F 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #4ECDC4 0%, #06D6A0 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #5B4CFF 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.Toastify__toast {
+  @apply rounded-lg shadow-card;
+}
+
+.Toastify__toast--success {
+  @apply bg-success text-white;
+}
+
+.Toastify__toast--error {
+  @apply bg-error text-white;
+}
+
+.Toastify__toast--warning {
+  @apply bg-warning text-white;
+}
+
+.Toastify__toast--info {
+  @apply bg-info text-white;
+}
