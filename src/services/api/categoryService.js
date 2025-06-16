@@ -1,4 +1,4 @@
-import { categoryData } from '../mockData/categories.json'
+import categoryData from '../mockData/categories.json'
 
 let categories = [...categoryData]
 let nextId = Math.max(...categories.map(c => c.Id)) + 1
