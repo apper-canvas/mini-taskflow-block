@@ -71,9 +71,9 @@ const tasksSlice = createSlice({
       .addCase(fetchTasks.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message
-      })
+})
       .addCase(createTask.fulfilled, (state, action) => {
-        state.items.push(action.payload)
+        state.items = [...state.items, action.payload]
       })
       .addCase(updateTask.fulfilled, (state, action) => {
         const index = state.items.findIndex(task => task.Id === action.payload.Id)
