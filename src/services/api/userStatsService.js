@@ -1,4 +1,4 @@
-import { userStatsData } from '../mockData/userStats.json'
+import userStatsData from '../mockData/userStats.json'
 
 let stats = { ...userStatsData }
 
