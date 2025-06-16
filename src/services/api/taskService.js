@@ -17,8 +17,12 @@ export const taskService = {
     return task ? { ...task } : null
   },
 
-  async create(taskData) {
+async create(taskData) {
     await delay()
+    console.log('Creating task with data:', taskData)
+    console.log('Current tasks count:', tasks.length)
+    console.log('Next ID will be:', nextId)
+    
     const newTask = {
       Id: nextId++,
       title: taskData.title,
@@ -29,9 +33,14 @@ export const taskService = {
       completed: false,
       archived: false,
       createdAt: new Date().toISOString(),
-      completedAt: null
+      completedAt: null,
+      order: tasks.length
     }
+    
     tasks.push(newTask)
+    console.log('Task created successfully:', newTask)
+    console.log('Updated tasks count:', tasks.length)
+    
     return { ...newTask }
   },
 

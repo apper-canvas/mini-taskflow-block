@@ -14,7 +14,7 @@ function QuickAddBar() {
   const [categoryId, setCategoryId] = useState('general')
   const [isExpanded, setIsExpanded] = useState(false)
   
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault()
     
     if (!title.trim()) {
@@ -22,20 +22,30 @@ function QuickAddBar() {
       return
     }
     
+    console.log('QuickAddBar: Submitting task creation')
+    console.log('Task data:', { title: title.trim(), categoryId, priority: parseInt(priority) })
+    
     try {
-      await dispatch(createTask({
+      const resultAction = await dispatch(createTask({
         title: title.trim(),
         categoryId,
         priority: parseInt(priority),
-      })).unwrap()
+      }))
       
-      setTitle('')
-      setPriority(1)
-      setCategoryId('general')
-      setIsExpanded(false)
-      toast.success('Task created successfully!')
+      if (createTask.fulfilled.match(resultAction)) {
+        console.log('QuickAddBar: Task creation successful, resetting form')
+        setTitle('')
+        setPriority(1)
+        setCategoryId('general')
+        setIsExpanded(false)
+        toast.success('Task created successfully!')
+      } else {
+        console.error('QuickAddBar: Task creation failed', resultAction.error)
+        toast.error('Failed to create task: ' + (resultAction.error?.message || 'Unknown error'))
+      }
     } catch (error) {
-      toast.error('Failed to create task')
+      console.error('QuickAddBar: Unexpected error during task creation', error)
+      toast.error('Failed to create task: ' + error.message)
     }
   }
   

@@ -59,33 +59,64 @@ const tasksSlice = createSlice({
       state.searchResults = []
     },
   },
-  extraReducers: (builder) => {
+extraReducers: (builder) => {
     builder
       .addCase(fetchTasks.pending, (state) => {
         state.loading = true
+        state.error = null
       })
       .addCase(fetchTasks.fulfilled, (state, action) => {
         state.loading = false
         state.items = action.payload
+        state.error = null
       })
       .addCase(fetchTasks.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message
-})
+      })
+      .addCase(createTask.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
       .addCase(createTask.fulfilled, (state, action) => {
+        state.loading = false
         state.items = [...state.items, action.payload]
+        state.error = null
+        console.log('Task created and added to Redux store:', action.payload)
+      })
+      .addCase(createTask.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message
+        console.error('Task creation failed:', action.error.message)
+      })
+      .addCase(updateTask.pending, (state) => {
+        state.error = null
       })
       .addCase(updateTask.fulfilled, (state, action) => {
         const index = state.items.findIndex(task => task.Id === action.payload.Id)
         if (index !== -1) {
           state.items[index] = action.payload
         }
+        state.error = null
+      })
+      .addCase(updateTask.rejected, (state, action) => {
+        state.error = action.error.message
+      })
+      .addCase(deleteTask.pending, (state) => {
+        state.error = null
       })
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.items = state.items.filter(task => task.Id !== action.payload)
+        state.error = null
+      })
+      .addCase(deleteTask.rejected, (state, action) => {
+        state.error = action.error.message
       })
       .addCase(searchTasks.fulfilled, (state, action) => {
         state.searchResults = action.payload
+      })
+      .addCase(searchTasks.rejected, (state, action) => {
+        state.error = action.error.message
       })
   },
 })
